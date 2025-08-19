@@ -40,7 +40,7 @@ public class JwtAuthenticationProvider implements AuthenticationProvider {
 
     @Override
 	public Authentication authenticate(Authentication authentication) throws AuthenticationException {
-        logger.debug("Verifying key with secret '" + secret + "'");
+        logger.debug("Verifying key for JWT authentication");
         BearerTokenAuthenticationToken bearer = (BearerTokenAuthenticationToken) authentication;
 		try {
             SecretKeySpec secretKey = new SecretKeySpec(this.secret.getBytes(StandardCharsets.UTF_8), "HmacSHA256");
